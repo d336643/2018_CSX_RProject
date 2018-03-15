@@ -7,10 +7,13 @@
 
 ## 學習進度
 ### Week3(3/22)
-  [林建甫老師R教學網站]: http://web.ntpu.edu.tw/~cflin/ （完成04,06）<br>
+>[林建甫老師R教學網站]: http://web.ntpu.edu.tw/~cflin/ （完成04,06）<br>
+
 ### Week2(3/15)
-  [林建甫老師R教學網站]: http://web.ntpu.edu.tw/~cflin/ （完成01,02,03,05）[done] <br>
-  作業01,02
+[林建甫老師R教學網站]: http://web.ntpu.edu.tw/~cflin/ （完成01,02,03,05）[done] <br>
+>[資料框整理技巧]:https://goo.gl/Qrc77S
+>作業01,02
+
 ### Week1(3/8)
   建立 Repository [done]<br>
   完成 R BasicI(至 5.資料結構) [done]<br>

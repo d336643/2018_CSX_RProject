@@ -1,5 +1,5 @@
 library(httr)
-library(XML)
+library(xml)
 
 # 要爬的網址
 url <- "https://stackoverflow.com/questions/tagged/r?sort=votes&pageSize=50"
