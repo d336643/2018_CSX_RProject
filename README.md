@@ -1,7 +1,8 @@
-# CS+X Programming Class
+# CS+X Programming Class 
+(B05303124)
 
 嗨 你好<br>
-我是鄭亦辰，可以叫我Euni(E不發音)<br>
+我是經濟二的鄭亦辰，可以叫我Euni(E不發音)<br>
 認真想學資料分析，第一次接觸 R<br>
 期望能在這堂課找到共學的好夥伴<br>
 也想做出讓自己有所成就的專案<br>
