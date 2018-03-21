@@ -1,4 +1,5 @@
 # CS+X Programming Class
+
 嗨 你好<br>
 我是鄭亦辰，可以叫我Euni(E不發音)<br>
 認真想學資料分析，第一次接觸 R<br>
@@ -6,16 +7,17 @@
 也想做出讓自己有所成就的專案<br>
 
 ## Progress
+
 ### Week3(3/29)----繪圖
 
 
 ### Week3(3/22)----爬蟲
 > #### **R語法**
 > 1. [林建甫老師R教學網站](http://web.ntpu.edu.tw/~cflin/) （完成04,06）<br>
-> 2. 
+> 2. R語法實作練習
 
 > #### **爬蟲**
-
+> 1. 爬蟲CASE練習
 
 ### Week2(3/15)----爬蟲
 > #### **R語法**
@@ -25,11 +27,12 @@
 
 > #### **爬蟲**
 > 1. Overview
->   [網頁資料擷取](https://bookdown.org/sulaxd/0127/scrapt-topic.html#r) <br>
+(*[網頁資料擷取](https://bookdown.org/sulaxd/0127/scrapt-topic.html#r)*) <br>
 > 2. 網頁結構（HTML/CSS/JS）<br>
 > 3. SelectorGadget & Xpath
->   [W3school](https://www.w3schools.com/xml/xpath_intro.asp)
->   [Practice](http://www.topswagcode.com/xpath/#)
+(*[W3school](https://www.w3schools.com/xml/xpath_intro.asp)*/
+*[Xpath Practice](http://www.topswagcode.com/xpath/#)*)
+> 4. 簡易爬蟲CASE
 
 ### Week1(3/8)
   建立 Repository [done]<br>
