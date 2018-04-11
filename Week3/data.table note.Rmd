@@ -1,0 +1,92 @@
+---
+title: "data.table Practice Note"
+author: "EuniCheng"
+date: "2018/4/5"
+output: html_document
+---
+Source: [DataScienceRBook 7.2](https://yijutseng.github.io/DataScienceRBook/eda.html#datatable)
+
+<style>
+pre code, pre, code {
+  white-space: pre !important;
+  overflow-x: scroll !important;
+  word-break: keep-all !important;
+  word-wrap: initial !important;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## DT[i, j, by=]
+- `i` Row
+- `j` Column
+- `by` Group By
+
+##
+
+```{r}
+library(data.table)
+library(SportsAnalytics)
+
+DT <- data.table(fetch_NBAPlayerStatistics())
+DT
+```
+
+### 語法
+1.1 `i` 針對 row 做篩選
+
+擷取姓名列有A的
+```{r results="hide"}
+DT[grepl('A', Name)]
+```
+擷取姓名列有 A 的且位置在中鋒的
+```{r results="hide"}
+DT[grepl('A', Name)&Position=='C']
+```
+
+1.2 `j` 決定輸出欄位
+
+- 輸出多個數值或是要命名需用`.()`包起來
+
+輸出 1~3 欄
+```{r results="hide"}
+DT[,1:3]
+```
+輸出其中兩欄
+```{r results="hide"}
+DT[,.(Name,Team)]
+```
+`j` 位也可以運算完再輸出
+```{r}
+DT[,.(GamesPlayedMean=mean(GamesPlayed),
+      PersonamFoulsMeam=mean(PersonalFouls),
+      StealsMean=mean(Steals))]
+```
+i, j 參數搭配使用，找到出場數>60的人們平均命中率多少
+```{r}
+DT[GamesPlayed>60,.(ThreesMadeMean=mean(ThreesMade))]
+```
+
+1.3 `by` 分組再計算
+同一 Team 在同一組，分組後再計算各 Team 三分球平均數。<br>
+`.N`可以計算該組有幾筆資料
+```{r}
+DT[,.(Num=.N,ThreesMadeMean=mean(ThreesMade)),by=Team]
+```
+各隊（`by`）中鋒（`i`）的三分球平均（`j`）
+```{r results="hide"}
+DT[Position=='C',.(Num=.N,ThreeMadeMean=mean(ThreesMade)),by=Team]
+```
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

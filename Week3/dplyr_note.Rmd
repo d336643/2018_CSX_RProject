@@ -1,0 +1,78 @@
+---
+title: "data.table Practice Note"
+author: "EuniCheng"
+date: "2018/4/5"
+output: html_document
+---
+Source: [DataScienceRBook 7.2](https://yijutseng.github.io/DataScienceRBook/eda.html#datatable)
+
+<style>
+pre code, pre, code {
+  white-space: pre !important;
+  overflow-x: scroll !important;
+  word-break: keep-all !important;
+  word-wrap: initial !important;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## dplyr Function 統整
+- `selsec()`
+- `filter()`
+- `mutate()`
+- `summerise()`：計算統計值
+- `group_by`
+- `arrange`:排序
+- `rename`
+
+##
+
+```{r}
+library(dplyr)
+library(SportsAnalytics)
+
+NBA <- fetch_NBAPlayerStatistics()
+```
+
+### 語法
+
+```{r results="hide"}
+DT[Position=='C',.(Num=.N,ThreeMadeMean=mean(ThreesMade)),by=Team]
+```
+
+用 `filter()` 選擇 Team 為 "BOS" 或 "SAN" 
+```{r results="hide"}
+filter1 <- filter(NBA$Team %in% c("BOS","SAN"))
+```
+
+`filter()` 與 `summarise()` 合併使用：<br>
+找出**出場數>60的人**的球員**個數**、**不重複的隊伍數**以及**不重複的守備位置數**
+```{r results="hide"}
+filter1 <- filter(NBA$GamePlayer>60) %>%
+  summarise(nPlayer=n(), nTeam=n_distinct(Team), nPosition=N_distinct(Position))
+```
+
+`group_by()`像是計算**各隊****各守備位置**的球員數、平均出場數
+```{r results="hide"}
+group1 <- group_by(NBA,Team,Position) %>%
+  summarise(nPlayer=n(),meanPlayed=mean(GamePlayed))
+```
+
+`arrange`:資料計算完後排序
+```{r results="hide"}
+ascending <- arrange(NBA,GamePlayed)
+descending <- arrange(NBA,desc(GamePlayed))
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

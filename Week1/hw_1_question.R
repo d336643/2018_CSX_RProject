@@ -95,6 +95,7 @@ repeat{
     break
   }else{
     print("Not the Ans! Try again!")
+    input <- scan(nmax=4)
   }
 }
 
